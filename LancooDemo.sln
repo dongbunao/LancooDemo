@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LancooDemo", "LancooDemo\LancooDemo.csproj", "{0E4031A9-E8B5-4749-9DE2-7DF801F5F875}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quartz.2010", "Quartz.NET-2.5\src\Quartz\Quartz.2010.csproj", "{AEF8823B-E45B-4B35-A4D0-C08C1196D017}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E4031A9-E8B5-4749-9DE2-7DF801F5F875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4031A9-E8B5-4749-9DE2-7DF801F5F875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4031A9-E8B5-4749-9DE2-7DF801F5F875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4031A9-E8B5-4749-9DE2-7DF801F5F875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEF8823B-E45B-4B35-A4D0-C08C1196D017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEF8823B-E45B-4B35-A4D0-C08C1196D017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEF8823B-E45B-4B35-A4D0-C08C1196D017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEF8823B-E45B-4B35-A4D0-C08C1196D017}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
