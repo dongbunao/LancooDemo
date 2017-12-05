@@ -216,6 +216,8 @@
     <Compile Include="Common\MyComparer.cs" />
     <Compile Include="Common\SqlHelper.cs" />
     <Compile Include="Common\SqlHelper1.cs" />
+    <Compile Include="DAL\DeleteOldDAL.cs" />
+    <Compile Include="DAL\InsertNewDAL.cs" />
     <Compile Include="DAL\Recommend_ResourceDAL.cs" />
     <Compile Include="DAL\Resource_GetResListDAL.cs" />
     <Compile Include="Interface\AccountController.cs" />

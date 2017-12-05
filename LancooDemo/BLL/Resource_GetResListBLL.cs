@@ -11,15 +11,23 @@ namespace LancooDemo.BLL
 {
     public class Resource_GetResListBLL
     {
+        /// <summary>
+        /// 定时同步资源库的所有资源
+        /// </summary>
+        /// <returns></returns>
         public int GetResListByTime()
         {
             SqlHelper1 sh = new SqlHelper1();
             sh.Open();
             Resource_GetResListDAL dal = new Resource_GetResListDAL(sh);
+
             SqlHelper db = new SqlHelper();
             db.Open();
             Transer_Resource2DAL trdal = new Transer_Resource2DAL(db);
-            trdal.DeleteResList();
+
+            DeleteOldDAL dod = new DeleteOldDAL(db);
+            dod.DeleteResList();
+
             DataTable dt = dal.GetResListByTime();
             int res = 1;
             try
@@ -71,6 +79,18 @@ namespace LancooDemo.BLL
             db.Close();
             return res;
         }
+
+
+        /// <summary>
+        /// 定时同步资源库的所有资源后，定时更新本地的资源使用统计系列表
+        /// </summary>
+        /// <returns></returns>
+        public int UPLocalDataByTime()
+        {
+
+            return 1;
+        }
+
 
     }
 

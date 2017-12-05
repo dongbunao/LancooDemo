@@ -217,20 +217,5 @@ namespace LancooDemo.DAL
         }
 
 
-        /// <summary>
-        /// 在插入新数据之前删除老数据
-        /// </summary>
-        /// <returns></returns>
-        public int DeleteResList()
-        {
-            string sqlStr = "delete [dbo].[Transer_Resource3]";
-            List<IDataParameter> parameters = Param()
-                 .Build();
-
-
-            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
-
-            return effectRows;
-        }
     }
 }

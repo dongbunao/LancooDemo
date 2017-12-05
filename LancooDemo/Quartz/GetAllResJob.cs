@@ -11,7 +11,7 @@ namespace LancooDemo.Quartz
         public void Execute(IJobExecutionContext context)
         {
             BLL.Resource_GetResListBLL bll = new BLL.Resource_GetResListBLL();
-          bll.GetResListByTime();
+            bll.GetResListByTime();
         }
         }
 }
