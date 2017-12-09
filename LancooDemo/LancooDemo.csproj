@@ -210,6 +210,7 @@
     <Compile Include="BLL\Recommend_ResouceBLL.cs" />
     <Compile Include="BLL\Resource_GetResListBLL.cs" />
     <Compile Include="BLL\Transer_Tesource2BLL.cs" />
+    <Compile Include="BLL\UpdateLocalDataBLL.cs" />
     <Compile Include="Common\CommonTools.cs" />
     <Compile Include="Common\IDA.cs" />
     <Compile Include="Common\IDA1.cs" />
@@ -220,11 +221,13 @@
     <Compile Include="DAL\InsertNewDAL.cs" />
     <Compile Include="DAL\Recommend_ResourceDAL.cs" />
     <Compile Include="DAL\Resource_GetResListDAL.cs" />
+    <Compile Include="DAL\UpdateLocalDataDAL.cs" />
     <Compile Include="Interface\AccountController.cs" />
     <Compile Include="Interface\HomeController.cs" />
     <Compile Include="Interface\Show\V1\Recommend_ResourceController.cs" />
     <Compile Include="Interface\Show\V1\Resource_GetResListController.cs" />
     <Compile Include="Interface\Show\V1\Transer_Resource2Controller.cs" />
+    <Compile Include="Interface\Show\V1\UpdateLocalDataController.cs" />
     <Compile Include="Interface\ValuesController.cs" />
     <Compile Include="Interface\VersionHttpControllerSelector.cs" />
     <Compile Include="DAL\Transer_Resource2DAL.cs" />
@@ -239,6 +242,7 @@
     <Compile Include="Models\Transer_Tesource2Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Quartz\UpdateLocalDataJob.cs" />
     <Compile Include="Quartz\GetAllResJob.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />

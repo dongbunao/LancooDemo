@@ -9,11 +9,11 @@
   </processing-directives>
 
   <schedule>
-   
+   <!-- 定时获取资源库所有数据  开始 -->
     <job>
       <name>GetAllResJob</name>
       <group>GetAllResGroup</group>
-      <description>Homework2STJob作业</description>
+      <description>定时获取资源库所有数据</description>
       <job-type> LancooDemo.Quartz.GetAllResJob,LancooDemo</job-type>
       <durable>true</durable>
       <recover>true</recover>
@@ -25,8 +25,31 @@
         <job-name>GetAllResJob</job-name>
         <job-group>GetAllResGroup</job-group>
         <start-time>2017-04-20T00:00:00+08:00</start-time>
-        <cron-expression>0 10 12 ? * * </cron-expression>
+        <cron-expression>0 10 1 ? * * </cron-expression>
       </cron>
     </trigger>
+    <!-- 定时获取资源库所有数据  结束 -->
+
+    <!-- 定时更新本地数据  开始 -->
+    <job>
+      <name>UpdateLocalDataJob</name>
+      <group>UpdateLocalDataGroup</group>
+      <description>定时更新本地数据</description>
+      <job-type> LancooDemo.Quartz.UpdateLocalDataJob,LancooDemo</job-type>
+      <durable>true</durable>
+      <recover>true</recover>
+    </job>
+    <trigger>
+      <cron>
+        <name>UpdateLocalDataTrigger</name>
+        <group>UpdateLocalDataGroup</group>
+        <job-name>UpdateLocalDataJob</job-name>
+        <job-group>UpdateLocalDataGroup</job-group>
+        <start-time>2017-04-20T00:00:00+08:00</start-time>
+        <cron-expression>0 30 2 ? * * </cron-expression>
+      </cron>
+    </trigger>
+    <!-- 定时更新本地数据  结束 -->
+    
   </schedule>
 </job-scheduling-data>

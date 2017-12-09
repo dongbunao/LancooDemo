@@ -32,22 +32,5 @@ namespace LancooDemo.DAL
             return dt;
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public int UPLocalDataByTime()
-        {   //1、删除表中原有数据
-            //2、统计（计算）后的数据插入表中
-            string sqlStr = "P_Lgdb_Resource_GetResList";
-            DataTable dt = new DataTable();
-            dt = db.QueryCommand(sqlStr, CommandType.StoredProcedure, parameters);
-
-        }
-
-
-
-
     }
 }
