@@ -30,7 +30,7 @@
     </trigger>
     <!-- 定时获取资源库所有数据  结束 -->
 
-    <!-- 定时更新本地数据  开始 -->
+    <!-- 定时更新本地数据  开始 每天凌晨两点半-->
     <job>
       <name>UpdateLocalDataJob</name>
       <group>UpdateLocalDataGroup</group>
