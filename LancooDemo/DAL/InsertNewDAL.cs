@@ -15,7 +15,7 @@ namespace LancooDemo.DAL
 
         public int InsertUesr_Use()
         {
-            string sqlStr = "insert into dbo.User_Use（UserID, ResourceID, Times, UpdateTime） select UserID, ResourceID, count(ResourceID) as Times, CONVERT(datetime,GETDATE()) from dbo.ResourceUse"
+            string sqlStr = "insert into dbo.User_Use(UserID, ResourceID, Times, UpdateTime) select UserID, ResourceID, count(ResourceID) as Times, CONVERT(datetime,GETDATE()) from dbo.ResourceUse"
                              + " group by UserID, ResourceID having count(*) > 0 order by Times desc";
             List<IDataParameter> parameters = Param()
                 .Build();
