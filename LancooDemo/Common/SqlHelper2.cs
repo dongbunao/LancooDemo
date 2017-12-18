@@ -7,11 +7,11 @@ using System.Data.SqlClient;
 namespace LancooDemo.Common
 {
     /// <summary>
-    /// 连接数字化资源库的配置
+    /// 连接64上的byjiang库的配置 
     /// </summary>
-    public class SqlHelper1 : IDisposable
+    public class SqlHelper2 : IDisposable
     {
-        private static string CONN = ConfigurationManager.ConnectionStrings["connStr1"].ConnectionString;
+        private static string CONN = ConfigurationManager.ConnectionStrings["connStr2"].ConnectionString;
 
         private string connStr;
         private SqlConnection conn;
@@ -25,7 +25,7 @@ namespace LancooDemo.Common
         /// <param name="connStr">the connection string.</param>
         /// <exception cref="SqlException"></exception>
         /// <exception cref="InvalidOperationException"></exception>
-        public SqlHelper1()
+        public SqlHelper2()
         {
             this.connStr = CONN;
         }

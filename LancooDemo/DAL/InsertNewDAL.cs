@@ -1,4 +1,5 @@
 ﻿using LancooDemo.Common;
+using LancooDemo.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -45,6 +46,18 @@ namespace LancooDemo.DAL
             int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
             return effectRows;
         }
+
+        public int InsertTeacher(TeacherModel model)
+        {
+            string sqlStr = "INSERT INTO [dbo].[Base_Teacher] ([Term],[UserID],[UserName],[Gender],[SchoolID],[SchoolName],[SubjectIDs],[SubjectNames])" 
+                + "values(" +  model.Term + model.UserID + model.UserName + model.Gender + model.SchoolID + model.SchoolName + model.SubjectIDs + model.SubjectNames + ")";
+
+            List<IDataParameter> parameters = Param()
+               .Build();
+            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
+            return effectRows;
+        }
+
 
     }
 }

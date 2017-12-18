@@ -12,7 +12,7 @@ namespace LancooDemo.BLL
     public class Resource_GetResListBLL
     {
         /// <summary>
-        /// 定时同步资源库的所有资源
+        /// 把资源库存储过程的结果插入本地表Transer_Resource3中
         /// </summary>
         /// <returns></returns>
         public int GetResListByTime()
@@ -79,18 +79,6 @@ namespace LancooDemo.BLL
             db.Close();
             return res;
         }
-
-
-        /// <summary>
-        /// 定时同步资源库的所有资源后，定时更新本地的资源使用统计系列表
-        /// </summary>
-        /// <returns></returns>
-        public int UPLocalDataByTime()
-        {
-
-            return 1;
-        }
-
 
     }
 
