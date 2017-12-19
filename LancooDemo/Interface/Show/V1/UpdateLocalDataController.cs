@@ -19,6 +19,15 @@ namespace LancooDemo.Interface.Show.V1
             return result;
         }
 
+        [HttpGet]
+        [ActionName("Update64Teach")]
+        public int Update64Teach()
+        {
+            Synchro64BLL sy64 = new Synchro64BLL();
+            int result = sy64.SynochroTeacher();
+            return result;
+        }
+
 
     }
 }

@@ -207,6 +207,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="BLL\OperationBLL.cs" />
     <Compile Include="BLL\Recommend_ResouceBLL.cs" />
     <Compile Include="BLL\Resource_GetResListBLL.cs" />
     <Compile Include="BLL\Synchro64BLL.cs" />
@@ -222,13 +223,14 @@
     <Compile Include="Common\SqlHelper1.cs" />
     <Compile Include="DAL\DeleteOldDAL.cs" />
     <Compile Include="DAL\InsertNewDAL.cs" />
-    <Compile Include="DAL\operationDAL.cs" />
+    <Compile Include="DAL\OperationDAL.cs" />
     <Compile Include="DAL\Recommend_ResourceDAL.cs" />
     <Compile Include="DAL\Resource_GetResListDAL.cs" />
     <Compile Include="DAL\Synchro64DAL.cs" />
     <Compile Include="DAL\UpdateLocalDataDAL.cs" />
     <Compile Include="Interface\AccountController.cs" />
     <Compile Include="Interface\HomeController.cs" />
+    <Compile Include="Interface\Show\V1\OperationController.cs" />
     <Compile Include="Interface\Show\V1\Recommend_ResourceController.cs" />
     <Compile Include="Interface\Show\V1\Resource_GetResListController.cs" />
     <Compile Include="Interface\Show\V1\Transer_Resource2Controller.cs" />

@@ -58,6 +58,17 @@ namespace LancooDemo.DAL
             return effectRows;
         }
 
+        public int DeleteBase_Teacher()
+        {
+            string sqlStr = "delete [dbo].[Base_Teacher]";
+            List<IDataParameter> parameters = Param()
+                 .Build();
+
+            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
+
+            return effectRows;
+        }
+
 
     }
 }

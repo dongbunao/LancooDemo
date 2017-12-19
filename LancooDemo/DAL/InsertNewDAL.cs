@@ -50,7 +50,7 @@ namespace LancooDemo.DAL
         public int InsertTeacher(TeacherModel model)
         {
             string sqlStr = "INSERT INTO [dbo].[Base_Teacher] ([Term],[UserID],[UserName],[Gender],[SchoolID],[SchoolName],[SubjectIDs],[SubjectNames])" 
-                + "values(" +  model.Term + model.UserID + model.UserName + model.Gender + model.SchoolID + model.SchoolName + model.SubjectIDs + model.SubjectNames + ")";
+                + "values( '"+ model.Term +"','"+ model.UserID +"','"+model.UserName + "','" + model.Gender + "','" + model.SchoolID + "','" + model.SchoolName + "','" + model.SubjectIDs + "','" + model.SubjectNames + "')";
 
             List<IDataParameter> parameters = Param()
                .Build();

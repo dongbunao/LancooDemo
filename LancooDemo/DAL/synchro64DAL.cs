@@ -13,6 +13,10 @@ namespace LancooDemo.DAL
         {
         }
 
+        /// <summary>
+        /// 同步Base_Teacher表中的多有教师
+        /// </summary>
+        /// <returns></returns>
         public DataTable SyncTeacher()
         {
             string sqlStr = "select * from dbo.Base_Teacher"; 

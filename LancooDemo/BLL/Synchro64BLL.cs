@@ -23,7 +23,10 @@ namespace LancooDemo.BLL
             SqlHelper sh = new SqlHelper();
             sh.Open();
 
-            InsertNewDAL insertNewDAL = new InsertNewDAL(sh); 
+            DeleteOldDAL dlt = new DeleteOldDAL(sh);
+            dlt.DeleteBase_Teacher();
+
+            InsertNewDAL insertNewDAL = new InsertNewDAL(sh);
 
             int res = 0;
             foreach (DataRow row in dt.Rows)
@@ -37,7 +40,7 @@ namespace LancooDemo.BLL
                 model.SchoolName = row.Value("SchoolName", "");
                 model.SubjectIDs = row.Value("SubjectIDs", "");
                 model.SubjectNames = row.Value("SubjectNames", "");
-                model.TS = row.Value("TS", DateTime.Now);
+                //model.TS = row.Value("TS", DateTime.Now);
 
                 res = insertNewDAL.InsertTeacher(model);
 
