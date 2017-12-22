@@ -13,15 +13,15 @@ namespace LancooDemo.DAL
         {
         }
 
-        public DataTable GetResListByTime()
+        public DataTable GetResListByTime(int pageIndex)
         {
 
             List<IDataParameter> parameters = Param()
-                //.Add("@courseCode", "")
-                //.Add("@versionCode", "")
-                //.Add("@type", "")
-                //.Add("@pageIndex", 1)
-                .Add("@pageSize", int.MaxValue)
+               //.Add("@courseCode", "")
+               //.Add("@versionCode", "")
+               //.Add("@type", "")
+               .Add("@pageIndex", pageIndex)
+                .Add("@pageSize", 5000)
                 //.Add("@totalCount", )
                 //.Add("@filter", "")
                 .Build();

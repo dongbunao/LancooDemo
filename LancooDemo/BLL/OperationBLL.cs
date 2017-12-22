@@ -50,9 +50,9 @@ namespace LancooDemo.BLL
             }
             //取出最相近的K个，把这些用户评分高并且推荐目标没有用过的资源作为推荐项
 
+            string fanhui = "ceshi";
 
-
-            return "";
+            return fanhui;
         }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace LancooDemo.BLL
             double distance = 0.0;
             foreach (string res in dic1.Keys)
             {
-                if (dic2.Keys.Contains(res))
+                if (dic2.ContainsKey(res))
                 {
                     distance += Math.Abs(dic1[res] - dic2[res]);
                 }
@@ -110,6 +110,8 @@ namespace LancooDemo.BLL
                           orderby d.Value
                           ascending
                           select d;
+            //disDicSort.ToDictionary(string,double);
+            //Dictionary<string, double> disDic2 = (Dictionary<string, double>) disDicSort; 
             return disDic;
         }
 
