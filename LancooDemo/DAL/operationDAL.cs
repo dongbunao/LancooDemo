@@ -108,6 +108,23 @@ namespace LancooDemo.DAL
             return dic;
         }
 
+        /// <summary>
+        /// 把计算的推荐结果保存到数据库中
+        /// </summary>
+        /// <param name="tid"></param>
+        /// <param name="recomList"></param>
+        /// <returns></returns>
+        public int saveResult(string tid, List<string> recomList)
+        {
+            string recommend = Newtonsoft.Json.JsonConvert.SerializeObject(recomList);
+
+            string sqlStr = "insert into dbo.Recommend(UserID, ResourceIDs) values( '" + tid + "','" + recommend + "')";
+            List<IDataParameter> parameters = Param()
+                .Build();
+
+            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
+            return effectRows;
+        }
 
     }
 }

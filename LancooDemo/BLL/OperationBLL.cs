@@ -41,14 +41,47 @@ namespace LancooDemo.BLL
             //}
 
 
-            //计算每个用户同其他用户的距离，并按远近排序
+            //计算每个用户同其他用户的（曼哈顿）距离，并按远近排序
             Dictionary<string, Dictionary<string, double>> sortDic = new Dictionary<string, Dictionary<string, double>>();
-            foreach (string res in dic.Keys)
+            foreach (string tid in dic.Keys)
             {
-                Dictionary<string, double>  neghborDic = nearestNeighbor(res, dic);
-                sortDic.Add(res, neghborDic);
+                Dictionary<string, double>  neghborDic = nearestNeighbor(tid, dic);
+                sortDic.Add(tid, neghborDic);
             }
-            //取出最相近的K个，把这些用户评分高并且推荐目标没有用过的资源作为推荐项
+
+            //4.在排序后的评分字典中为每个取出最相近的K个，把这些用户评分高并且推荐目标没有用过的资源作为推荐项，把推荐结果保存（更新）到数据库
+            foreach (string tid in sortDic.Keys)
+            {
+                Dictionary<string, double> dicJuLi = sortDic[tid];
+                List<string> techList = new List<string>();
+                int K = 5;  //K近邻
+                List<string> recomlist = new List<string>();
+                for (int i=0; i<K; i++)
+                {
+                    KeyValuePair<string, double> kvp = dicJuLi.ElementAt(i);
+                    foreach (string res in dic[kvp.Key].Keys)
+                    {
+                        if (dic[kvp.Key][res] > 3)
+                        {   //评分大于3的加入推荐候选项列表
+                            recomlist.Add(res);
+                        }
+                    }
+                }
+
+                //找出本用户已经用过的资源列表
+                List<string> usedlist = new List<string>();
+                foreach (string res in dic[tid].Keys)
+                {
+                    usedlist.Add(res);
+                }
+
+                //recomlist和usedlist做差集
+                recomlist = recomlist.Except(usedlist).ToList<string>();
+
+                //把用户ID和推荐结果集作为参数调用插入数据库的方法
+                int temp = opt.saveResult(tid,recomlist);
+            }
+
 
             string fanhui = "ceshi";
 
@@ -74,16 +107,6 @@ namespace LancooDemo.BLL
             return distance;
         }
 
-        //    def computeNearestNeighbor(username, users):
-        //"""计算所有用户至username用户的距离，倒序排列并返回结果列表"""
-        //distances = []
-        //for user in users:
-        //    if user != username:
-        //        distance = manhattan(users[user], users[username])
-        //        distances.append((distance, user))
-        //# 按距离排序——距离近的排在前面
-        //distances.sort()
-        //return distances
 
         /// <summary>
         /// 找出某个用户同其他用户的距离并排序
@@ -93,26 +116,39 @@ namespace LancooDemo.BLL
         /// <returns></returns>
         public Dictionary<string, double> nearestNeighbor(string techID, Dictionary<string, Dictionary<string, double>> dic)
         {
-            //List<Dictionary<string, double>> list = new List<Dictionary<string, double>>();
             Dictionary<string, double> disDic = new Dictionary<string, double>();
 
-            foreach (string res in dic.Keys)
+            foreach (string tid in dic.Keys)
             {
-                if (techID != res)
+                if (techID != tid)
                 {
-                    double distance = manhattan(dic[techID],dic[res]);
-                    disDic.Add(res, distance);
+                    double distance = manhattan(dic[techID],dic[tid]);
+                    disDic.Add(tid, distance);
                 }
-                //list.Add(disDic);
+               
             }
-            //list.Sort();
-            var disDicSort = from d in disDic
-                          orderby d.Value
-                          ascending
-                          select d;
-            //disDicSort.ToDictionary(string,double);
-            //Dictionary<string, double> disDic2 = (Dictionary<string, double>) disDicSort; 
+            
+
+            disDic = (from entry in disDic
+                      orderby entry.Value ascending
+                      select entry).ToDictionary(pair => pair.Key, pair => pair.Value);
+
+           
             return disDic;
+        }
+
+        /// <summary>
+        /// 计算给用户推荐的资源
+        /// </summary>
+        /// <param name="techID"></param>
+        /// <returns></returns>
+        public List<string> getRecommend(Dictionary<string, double> techID)
+        {
+            List<string> recomlist = new List<string>();
+
+
+
+            return recomlist;
         }
 
 
