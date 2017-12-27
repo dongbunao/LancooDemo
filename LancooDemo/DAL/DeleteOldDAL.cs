@@ -69,6 +69,17 @@ namespace LancooDemo.DAL
             return effectRows;
         }
 
+       
+        public int DeleteRecommend()
+        {
+            string sqlStr = "delete [dbo].[Recommend]";
+            List<IDataParameter> parameters = Param()
+                 .Build();
+
+            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
+
+            return effectRows;
+        }
 
     }
 }

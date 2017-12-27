@@ -126,5 +126,19 @@ namespace LancooDemo.DAL
             return effectRows;
         }
 
+        /// <summary>
+        /// 插入计算结果之前删除原有数据
+        /// </summary>
+        /// <returns></returns>
+        public int DeleteRecommend()
+        {
+            string sqlStr = "delete [dbo].[Recommend]";
+            List<IDataParameter> parameters = Param()
+                 .Build();
+
+            int effectRows = db.RunCommand(sqlStr, CommandType.Text, parameters);
+
+            return effectRows;
+        }
     }
 }

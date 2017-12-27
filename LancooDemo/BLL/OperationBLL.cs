@@ -15,10 +15,10 @@ namespace LancooDemo.BLL
             sh.Open();
 
             OperationDAL opt = new OperationDAL(sh);
+            opt.DeleteRecommend();  //删除推荐结果表中数据
 
             //1、取出所有老师的ID
             List<string> techIDs = opt.getAllTechID();
-
 
             //2、构造每个老师的评分表
             Dictionary<string, Dictionary<string, double>> dic = new Dictionary<string, Dictionary<string, double>>();
@@ -61,7 +61,7 @@ namespace LancooDemo.BLL
                     KeyValuePair<string, double> kvp = dicJuLi.ElementAt(i);
                     foreach (string res in dic[kvp.Key].Keys)
                     {
-                        if (dic[kvp.Key][res] > 3)
+                        if (dic[kvp.Key][res] > 3 && !recomlist.Contains(res))
                         {   //评分大于3的加入推荐候选项列表
                             recomlist.Add(res);
                         }
@@ -82,9 +82,7 @@ namespace LancooDemo.BLL
                 int temp = opt.saveResult(tid,recomlist);
             }
 
-
             string fanhui = "ceshi";
-
             return fanhui;
         }
 
@@ -127,28 +125,12 @@ namespace LancooDemo.BLL
                 }
                
             }
-            
 
             disDic = (from entry in disDic
                       orderby entry.Value ascending
                       select entry).ToDictionary(pair => pair.Key, pair => pair.Value);
-
            
             return disDic;
-        }
-
-        /// <summary>
-        /// 计算给用户推荐的资源
-        /// </summary>
-        /// <param name="techID"></param>
-        /// <returns></returns>
-        public List<string> getRecommend(Dictionary<string, double> techID)
-        {
-            List<string> recomlist = new List<string>();
-
-
-
-            return recomlist;
         }
 
 
