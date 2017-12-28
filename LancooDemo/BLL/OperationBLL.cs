@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using LancooDemo.Interface.Show.V1;
 
 namespace LancooDemo.BLL
 {
@@ -61,7 +62,7 @@ namespace LancooDemo.BLL
                     KeyValuePair<string, double> kvp = dicJuLi.ElementAt(i);
                     foreach (string res in dic[kvp.Key].Keys)
                     {
-                        if (dic[kvp.Key][res] > 3 && !recomlist.Contains(res))
+                        if (dic[kvp.Key][res] > 2 && !recomlist.Contains(res))
                         {   //评分大于3的加入推荐候选项列表
                             recomlist.Add(res);
                         }
@@ -77,6 +78,19 @@ namespace LancooDemo.BLL
 
                 //recomlist和usedlist做差集
                 recomlist = recomlist.Except(usedlist).ToList<string>();
+
+                if (recomlist.Count < 5)
+                {   //推荐项少于5，补充社会化属性标签推荐结果
+                    BLL.Recommend_ResouceBLL bll = new BLL.Recommend_ResouceBLL();
+                    List<string> recomlistB = bll.ListUnion(tid) ;
+                    foreach (string res in recomlistB)
+                    {
+                        if (!recomlist.Contains(res) && recomlist.Count<5)
+                        {
+                            recomlist.Add(res);
+                        }
+                    }
+                }
 
                 //把用户ID和推荐结果集作为参数调用插入数据库的方法
                 int temp = opt.saveResult(tid,recomlist);
