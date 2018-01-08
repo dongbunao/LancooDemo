@@ -7,10 +7,10 @@ namespace LancooDemo.Interface.Show.V1
     {
         [HttpGet]
         [ActionName("operationDistance")]
-        public string operationDistance()
+        public int operationDistance()
         {
             OperationBLL opt = new OperationBLL();
-            string result = opt.operationDistance();
+            int result = opt.operationDistance();
             return result;
         }
     }

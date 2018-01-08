@@ -213,6 +213,7 @@
     <Compile Include="BLL\Synchro64BLL.cs" />
     <Compile Include="BLL\Transer_Tesource2BLL.cs" />
     <Compile Include="BLL\UpdateLocalDataBLL.cs" />
+    <Compile Include="Common\AlgorithmUtils\ImprovedCosine.cs" />
     <Compile Include="Common\CommonTools.cs" />
     <Compile Include="Common\IDA.cs" />
     <Compile Include="Common\IDA2.cs" />

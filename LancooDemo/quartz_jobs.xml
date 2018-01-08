@@ -50,6 +50,27 @@
       </cron>
     </trigger>
     <!-- 定时更新本地数据  结束 -->
+
+    <!-- 定时更新推荐结果  开始 每天凌晨两点半--><!--
+    <job>
+      <name>UpdateOperationJob</name>
+      <group>UpdateOperationGroup</group>
+      <description>定时更新本地数据</description>
+      <job-type> LancooDemo.Quartz.UpdateLocalDataJob,LancooDemo</job-type>
+      <durable>true</durable>
+      <recover>true</recover>
+    </job>
+    <trigger>
+      <cron>
+        <name>UpdateOperationTrigger</name>
+        <group>UpdateLocalDataGroup</group>
+        <job-name>UpdateOperationJob</job-name>
+        <job-group>UpdateOperationGroup</job-group>
+        <start-time>2017-04-20T00:00:00+08:00</start-time>
+        <cron-expression>0 00 3 ? * * </cron-expression>
+      </cron>
+    </trigger>
+    --><!-- 定时更新推荐结果  结束 -->
     
   </schedule>
 </job-scheduling-data>

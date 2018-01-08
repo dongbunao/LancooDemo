@@ -10,7 +10,7 @@ namespace LancooDemo.BLL
 {
     public class OperationBLL
     {
-        public string operationDistance()
+        public int operationDistance()
         {
             SqlHelper sh = new SqlHelper();
             sh.Open();
@@ -18,6 +18,7 @@ namespace LancooDemo.BLL
             OperationDAL opt = new OperationDAL(sh);
             opt.DeleteRecommend();  //删除推荐结果表中数据
 
+            try { 
             //1、取出所有老师的ID
             List<string> techIDs = opt.getAllTechID();
 
@@ -95,9 +96,12 @@ namespace LancooDemo.BLL
                 //把用户ID和推荐结果集作为参数调用插入数据库的方法
                 int temp = opt.saveResult(tid,recomlist);
             }
-
-            string fanhui = "ceshi";
-            return fanhui;
+            }
+            catch(Exception ex)
+            {
+                return 0;
+            }
+            return 1;
         }
 
         /// <summary>

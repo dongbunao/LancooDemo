@@ -10,8 +10,10 @@ namespace LancooDemo.Quartz
     {
         public void Execute(IJobExecutionContext context)
         {
-            BLL.UpdateLocalDataBLL bll = new BLL.UpdateLocalDataBLL();
-            bll.UpdateByTime();
+            BLL.UpdateLocalDataBLL upBll = new BLL.UpdateLocalDataBLL();
+            upBll.UpdateByTime();
+            BLL.OperationBLL optBll = new BLL.OperationBLL();
+            optBll.operationDistance();
         }
         }
 }
